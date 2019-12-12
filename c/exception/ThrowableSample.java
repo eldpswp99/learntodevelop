@@ -4,7 +4,7 @@ public class ThrowableSample{
     public static void main(String[] args) {
         ThrowableSample ts = new ThrowableSample();
         
-        ts.throwException(13);
+       // ts.throwException(13);
         try{
             ts.throwException(13);
         }catch(MyException e){
@@ -12,7 +12,7 @@ public class ThrowableSample{
         }
     }
     
-    public void throwException(int number) throws NullPointerException{
+    public void throwException(int number) throws MyException{
         try{
             if(number > 12){
                 throw new MyException("Number is over than 12");
