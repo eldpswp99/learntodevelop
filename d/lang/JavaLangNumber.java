@@ -1,9 +1,24 @@
 package d.lang;
 
+import d.lang.practice.*;
+
 public class JavaLangNumber{
     public static void main(String[] args){
-        JavaLangNumber sample = new JavaLangNumber();
-        sample.numberMinMaxElapsedCheck();
+        /*JavaLangNumber sample = new JavaLangNumber();
+        sample.printStreamCheck();
+        
+        StringBuffer sb = new StringBuffer();
+        sb.append("Hello");
+        sb.append("World");
+        
+        System.out.println(sb);*/
+        
+        NumberObjects no = new NumberObjects();
+        
+        System.out.println(no.parseLong("r1024"));
+        System.out.println(no.parseLong("1345123512521"));
+        
+        no.printOtherBase(1024);
     }
     
     public void numberTypeCheck(){
@@ -30,7 +45,16 @@ public class JavaLangNumber{
         long startNanoTime = System.nanoTime();
         numberSample.numberTypeCheck();
         System.out.println("Milli second : " +(System.currentTimeMillis() - startTime));
-        System.out.println("Nano second : " + (System.nanoTime() - startNanoTime));
-        
+        System.out.println("Nano second : " + (System.nanoTime() - startNanoTime));        
     }
+    
+    public void printStreamCheck(){
+        byte b = Byte.MAX_VALUE;
+        short s = Short.MAX_VALUE;
+        System.out.println(b);
+        System.out.println(s);
+    }
+    
+    
+    
 }

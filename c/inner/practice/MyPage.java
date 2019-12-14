@@ -1,7 +1,7 @@
 package c.inner.practice;
 
 public class MyPage{
-    static InputBox input;
+    static InputBox input = new InputBox();
     public static void main(String[] args){
         MyPage myp = new MyPage();
         myp.setUI();
@@ -10,7 +10,6 @@ public class MyPage{
     }
     
     public void setUI(){
-        input = new InputBox(); 
         input.setKeyListener(new KeyEventListener(){
             @Override
             public void onKeyDown(){
