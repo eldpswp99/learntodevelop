@@ -1,4 +1,4 @@
-package d.generic.practice;
+/*package d.generic.practice;
 
 public class MaxFinder{
     public static void main(String[] args){
@@ -43,4 +43,4 @@ public class MaxFinder{
         
         return minT;
     }
-}
+}*/
