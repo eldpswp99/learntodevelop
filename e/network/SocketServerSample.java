@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.io.PrintWriter;
 
 public class SocketServerSample {
     
@@ -69,33 +70,31 @@ public class SocketServerSample {
                 System.out.println("Server.Waiting for request");
                 client = server.accept();
                 System.out.println("Server : Accepted");
-                InputStream istream = client.getInputStream();
-            //    OutputStream ostream = client.getOutputStream();
                 
-                BufferedReader in = new BufferedReader(new InputStreamReader(istream));
-          //      BufferedWriter out = new BufferedWriter(new OutputStreamWriter(ostream));
+        //        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
                 String reply = "OK";
-                StringBuilder data = new StringBuilder();
+        /*        StringBuffer receivedData = new StringBuffer();
                 String str = null;
                                 
                 while((str = in.readLine()) != null){
-                    data.append(str);
+                    receivedData.append(str);
                 }
-                System.out.println("received Data : " + data);
-              //  out.write(reply);
+                System.out.println("received Data : " + receivedData);*/
+                
+                out.write(reply);
+                out.flush();
+
+               
+             //   in.close();
+                out.close();
+                client.close();
 
                 
-               
-                in.close();
-                istream.close();
-                /*out.close();
-                ostream.close();*/
-                client.close();
-                
-                if(data != null && "EXIT".equals(data.toString())){
+             /*   if(receivedData != null && "EXIT".equals(receivedData.toString())){
                     System.out.println("Stop SocketServer");
                     break;
-                }
+                }*/
                 System.out.println("-----------------");
             }
         }catch(Exception e){
