@@ -60,12 +60,12 @@ public class SocketClientSample {
             System.out.println("Client : Connect status = " + socket.isConnected());
             Thread.sleep(1000);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-           /* BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             
             out.write(data);
             out.flush();
             
-            System.out.println("Client Sent Data="+data);*/
+            System.out.println("Client Sent Data="+data);
             
             String str = null;
             StringBuffer receivedData = new StringBuffer();
@@ -74,7 +74,7 @@ public class SocketClientSample {
                 receivedData.append(str);
             }
             System.out.println("receivedData : "+receivedData);
-        //    out.close();
+            out.close();
             in.close();
         }catch(Exception e){
             e.printStackTrace();

@@ -71,30 +71,30 @@ public class SocketServerSample {
                 client = server.accept();
                 System.out.println("Server : Accepted");
                 
-        //        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
                 String reply = "OK";
-        /*        StringBuffer receivedData = new StringBuffer();
+                StringBuffer receivedData = new StringBuffer();
                 String str = null;
                                 
                 while((str = in.readLine()) != null){
                     receivedData.append(str);
                 }
-                System.out.println("received Data : " + receivedData);*/
+                System.out.println("received Data : " + receivedData);
                 
                 out.write(reply);
                 out.flush();
 
                
-             //   in.close();
+                in.close();
                 out.close();
                 client.close();
 
                 
-             /*   if(receivedData != null && "EXIT".equals(receivedData.toString())){
+                if(receivedData != null && "EXIT".equals(receivedData.toString())){
                     System.out.println("Stop SocketServer");
                     break;
-                }*/
+                }
                 System.out.println("-----------------");
             }
         }catch(Exception e){
